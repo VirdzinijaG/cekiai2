@@ -1,6 +1,8 @@
 import { default as express } from "express";
 import exphbs from "express-handlebars";
 
+import { router as pardavejaiRouter } from "./pardavejai.js";
+
 const app = express();
 const hbs = exphbs({
     helpers: {
@@ -22,6 +24,8 @@ app.use(express.static("web"));
 app.use(express.urlencoded({
     extended: true
 }));
+
+app.use("/pardavejai", pardavejaiRouter);
 
 
 
