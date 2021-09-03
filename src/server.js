@@ -2,6 +2,7 @@ import { default as express } from "express";
 import exphbs from "express-handlebars";
 
 import { router as pardavejaiRouter } from "./pardavejai.js";
+import { router as apmokejimoTipaiRouter } from "./apmokejimoTipai.js";
 
 const app = express();
 const hbs = exphbs({
@@ -26,6 +27,7 @@ app.use(express.urlencoded({
 }));
 
 app.use("/pardavejai", pardavejaiRouter);
+app.use("/apmokejimoTipai", apmokejimoTipaiRouter);
 
 
 

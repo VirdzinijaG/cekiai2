@@ -1,0 +1,17 @@
+<a href="/apmokejimoTipai/naujas">Naujas</a>
+<table>
+{{#each apmokejimoTipai}}
+    <tr>
+        <td>
+            {{this.pavadinimas}}
+        </td>
+        <td>
+            <a href="/apmokejimoTipai/{{this.id}}">edit</a>
+        </td>
+        <td>
+            <a href="/apmokejimoTipai/{{this.id}}/delete">X</a>
+        </td>
+    </tr>
+{{/each}}
+</table>
+<a href="/">Back</a>
