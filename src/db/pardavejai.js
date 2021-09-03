@@ -6,14 +6,14 @@ async function getList() {
         conn = await dbConnect();
         let r = await dbQuery(
             conn,
-            "select id, pavadinimas from pardavejai order by pavadinimas"
+            "select id, pavadinimas from pardavejai order by pavadinimas",
         );
         return r.results;
     } finally {
         try {
-            await dbConnect(conn);
+            await dbDisconnect(conn);
         } catch (err) {
-
+            // ignored
         }
     }
 }
@@ -34,6 +34,7 @@ async function getOne(id) {
             try {
                 await dbDisconnect(conn);
             } catch (err) {
+                // ignored
             }
         }
     } else {
@@ -64,11 +65,10 @@ async function save(id, pavadinimas) {
         try {
             await dbDisconnect(conn);
         } catch (err) {
+            // ignored
         }
     }
 }
-
-
 
 async function deleteRecord(id) {
     id = parseInt(id);
@@ -85,6 +85,7 @@ async function deleteRecord(id) {
             try {
                 await dbDisconnect(conn);
             } catch (err) {
+                // ignored
             }
         }
     } else {
@@ -92,5 +93,4 @@ async function deleteRecord(id) {
     }
 }
 
-
-export { getList, deleteRecord, getOne, save }
+export { deleteRecord, getList, getOne, save };
