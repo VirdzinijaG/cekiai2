@@ -17,7 +17,7 @@ router.get("/", async (req, res) => {
 router.get("/naujas", async (req, res) => {
   res.type("text/html");
   try {
-    res.render("apmokejimoTipai", {});
+    res.render("apmokejimoTipas", {});
   } catch (err) {
     console.log(err);
     res.status(500).send(err);
